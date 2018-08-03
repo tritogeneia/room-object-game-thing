@@ -3,10 +3,15 @@ class Room():
 		self.name = room_name
 		self.description = None
 		self.linked_rooms = {}
+		self.character = None
 	def set_description(self, room_description):
 		self.description = room_description
 	def get_description(self):
 		return self.description
+	def set_character(self, character_name):
+		self.character = character_name
+	def get_character(self):
+		return self.character
 	def get_name(self):
 		return self.name
 	def describe(self):
@@ -22,13 +27,15 @@ class Room():
 		for direction in self.linked_rooms:
 			room = self.linked_rooms[direction]
 			print("The " + room.get_name() + " is " + direction + ".")
+		print("-------------")
 	def move(self,direction):
-		# if direction is true, then return the direction
+		# if direction (eg, west) is in the dictionary, then return the room
 		if direction in self.linked_rooms:
 			return self.linked_rooms[direction]
 		else:
 			print("You can't go that way")
 			return self
+
 
 			
 			
